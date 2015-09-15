@@ -6,3 +6,9 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     id: 'arjunkamath.cielu5y8d004cu9lys6xrwbp5',
     accessToken: 'pk.eyJ1IjoiYXJqdW5rYW1hdGgiLCJhIjoiY2llbHU1enc0MDA0Z3VhbTF5ejVhdWNwdyJ9.5L-q42hDkFq4oKXpiE1UTQ'
 }).addTo(map);
+
+var dump1 = L.marker([60.189, 24.839]).addTo(map);
+var dump2 = L.marker([60.190, 24.837]).addTo(map);
+
+dump1.bindPopup("Dump 1").openPopup();
+dump2.bindPopup("Dump 2");
