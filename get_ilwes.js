@@ -1,14 +1,20 @@
-var http = require('http');
+var request = require('request'),
+    username = "yeShatohfai7eikop8bahngo0beifeipi3quu6daewahhah2ae",
+    password = "hah5iZ5xohsh2zie3AiThahp5pheighiopoh5cha",
+    url = "https://staging-ilwes.lassila-tikanoja.fi/v0/deliveries{?100000133}{?200218179}",
+    auth = "Basic " + new Buffer(username + ":" + password).toString("base64");
 
-var request = http.request({'hostname': 'www.staging-ilwes.lassila-tikanoja.fi/',
-                            'auth': 'naich9ahseixa2aigh3woXaexaibaeshaph2Se5iw8uzeir6tu:juoqu7ohdeelahshohk5Toh8TeeBoyie7iB2iela'
-                           }, 
-                           function (response) {
-                             console.log('STATUS: ' + response.statusCode);
-                             console.log('HEADERS: ' + JSON.stringify(response.headers));
-                             response.setEncoding('utf8');
-                             response.on('data', function (chunk) {
-                               console.log('BODY: ' + chunk);
-                             });
-                           });
-request.end();
+request(
+    {
+        url : url,
+        headers : {
+            "Authorization" : auth
+        }
+    },
+    function (error, response, body) {
+        // Do more stuff with 'body' here
+	console.log(body);
+	//console.log(response);
+	//console.log(error);
+    }
+);

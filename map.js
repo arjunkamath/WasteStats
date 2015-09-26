@@ -2,7 +2,9 @@ var otaniemi_xy = [60.190, 24.832];
 var tapiola_xy = [60.176, 24.808];
 var lauttasaari_xy = [60.157, 24.874];
 
-var map = L.map('map').setView(otaniemi_xy, 13);
+var lauttasaari_array = [[60.1573836,24.8760441],[60.1539586,24.8820308],[60.1520577,24.8912522],[60.1657619,24.8595485],[60.1623744,24.8876098],[60.1586423,24.8929876],[60.1609658,24.8551899]];
+
+var map = L.map('map').setView(otaniemi_xy, 4);
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -11,11 +13,21 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1IjoiYXJqdW5rYW1hdGgiLCJhIjoiY2llbHU1enc0MDA0Z3VhbTF5ejVhdWNwdyJ9.5L-q42hDkFq4oKXpiE1UTQ'
 }).addTo(map);
 
-var dump1 = L.marker([60.189, 24.839]).addTo(map);
-var dump2 = L.marker([60.190, 24.837]).addTo(map);
+L.geoJson(worldData).addTo(map);
 
-dump1.bindPopup("Dump 1").openPopup();
-dump2.bindPopup("Dump 2");
+var ot_dump1 = L.marker([60.189, 24.839]).addTo(map);
+var ot_dump2 = L.marker([60.190, 24.837]).addTo(map);
+
+var la_dump1 = L.marker(lauttasaari_array[0]).addTo(map);
+var la_dump2 = L.marker(lauttasaari_array[1]).addTo(map);
+var la_dump3 = L.marker(lauttasaari_array[2]).addTo(map);
+var la_dump4 = L.marker(lauttasaari_array[3]).addTo(map);
+var la_dump5 = L.marker(lauttasaari_array[4]).addTo(map);
+var la_dump6 = L.marker(lauttasaari_array[5]).addTo(map);
+var la_dump7 = L.marker(lauttasaari_array[6]).addTo(map);
+
+ot_dump1.bindPopup("Dump 1").openPopup();
+ot_dump2.bindPopup("Dump 2");
 
 function showTapiola(){
   map.setView(tapiola_xy, 13);
