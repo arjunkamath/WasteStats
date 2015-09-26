@@ -22,45 +22,72 @@ var myIcon = L.icon({
     iconAnchor: [22, 45]
 });
 
-var ot_dump1 = L.marker(otaniemi_array[0]).addTo(map);
-var ot_dump2 = L.marker(otaniemi_array[1]).addTo(map);
-var ot_dump3 = L.marker(otaniemi_array[2]).addTo(map);
-var ot_dump4 = L.marker(otaniemi_array[3]).addTo(map);
-var ot_dump5 = L.marker(otaniemi_array[4]).addTo(map);
-var ot_dump6 = L.marker(otaniemi_array[5]).addTo(map);
+var ot_dump = new Array();
+var ta_dump = new Array();
+var la_dump = new Array();
 
-var la_dump1 = L.marker(lauttasaari_array[0]).addTo(map);
-var la_dump2 = L.marker(lauttasaari_array[1]).addTo(map);
-var la_dump3 = L.marker(lauttasaari_array[2]).addTo(map);
-var la_dump4 = L.marker(lauttasaari_array[3]).addTo(map);
-var la_dump5 = L.marker(lauttasaari_array[4]).addTo(map);
-var la_dump6 = L.marker(lauttasaari_array[5]).addTo(map);
-var la_dump7 = L.marker(lauttasaari_array[6]).addTo(map);
+for (var i=0; i < otaniemi_array.length; i++){
+ ot_dump.push(L.marker(otaniemi_array[i]).addTo(map));
+}
 
-var ta_dump1 = L.marker(tapiola_array[0]).addTo(map);
-var ta_dump2 = L.marker(tapiola_array[1]).addTo(map);
-var ta_dump3 = L.marker(tapiola_array[2]).addTo(map);
-var ta_dump4 = L.marker(tapiola_array[3]).addTo(map);
-var ta_dump5 = L.marker(tapiola_array[4]).addTo(map);
-var ta_dump6 = L.marker(tapiola_array[5]).addTo(map);
+for (var i=0; i < lauttasaari_array.length; i++){
+ la_dump.push(L.marker(lauttasaari_array[i]).addTo(map));
+}
 
-ot_dump1.setOpacity(0.5);
+for (var i=0; i < tapiola_array.length; i++){
+ ta_dump.push(L.marker(tapiola_array[i]).addTo(map));
+}
 
-//ot_dump1.bindPopup("Dump 1").openPopup();
-ot_dump2.bindPopup("Dump 2");
+
+//ot_dump2.bindPopup("Dump 2");
 
 function showTapiola(){
   map.setView(tapiola_xy, 13);
+
+  lauttasaari_set_opacity(0.5);
+  tapiola_set_opacity(1);
+  otaniemi_set_opacity(0.5);
 }
 
 function showLauttasaari(){
   map.setView(lauttasaari_xy, 13);
+  
+  lauttasaari_set_opacity(1);
+  tapiola_set_opacity(0.5);
+  otaniemi_set_opacity(0.5);
 }
+
+function showOtaniemi(){
+  map.setView(otaniemi_array[2], 13);
+  
+  lauttasaari_set_opacity(0.5);
+  tapiola_set_opacity(0.5);
+  otaniemi_set_opacity(1);
+}
+
+function tapiola_set_opacity(op){
+  for (var i=0; i< ta_dump.length; i++){
+    ta_dump[i].setOpacity(op);
+  }
+}
+
+function lauttasaari_set_opacity(op){
+  for (var i=0; i< la_dump.length; i++){
+    la_dump[i].setOpacity(op);
+  }
+}
+
+function otaniemi_set_opacity(op){
+  for (var i=0; i< ot_dump.length; i++){
+    ot_dump[i].setOpacity(op);
+  }
+}
+
 
 function animate_line(){
 
   var latLangs2 = [];
-  latLangs2.push(otaniemi_xy);
+  latLangs2.push(otaniemi_array[2]);
   latLangs2.push(tapiola_xy);
   latLangs2.push(lauttasaari_xy);
 
@@ -83,10 +110,4 @@ function animate_line(){
   setTimeout(function(){
   polyline.addLatLng(otaniemi_xy);
   }, 6000);
-}
-
-
-function showOtaniemi(){
-  map.setView(otaniemi_array[2], 11);
-  animate_line();
 }
