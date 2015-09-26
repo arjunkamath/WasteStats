@@ -67,3 +67,24 @@ var chart4 = c3.generate({
         enabled: true
     }
 });
+
+var chart5 = c3.generate({
+  bindto: '#userRating',
+    data: {
+        columns: [
+            ['compareData', 30, 40, 50]
+        ],
+        type: 'bar',
+        color: function (color, d) {
+            // d will be 'id' when called for legends
+            return d.index === 2? "#ff0000": d.index === 1? "#0000ff": "#00ff00";
+        }
+    },
+    axis: {
+        rotated: true,
+        x: {
+            type: 'category',
+            categories: ['Best', 'Current', 'Worst']
+        }
+    }
+});
