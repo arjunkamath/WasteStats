@@ -2,6 +2,7 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link href="c3.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
@@ -40,7 +41,7 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container" id="tabContainer">
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
@@ -49,16 +50,33 @@
 	    <div id="map"></div>
 	  </div>
   	  <div class="col-lg-6">
-	    <ul class="nav nav-tabs">
-    	      <li class="active"><a href="#">My community</a></li>
-              <li><a href="#">Neighbourhood</a></li>
+	    <ul class="nav nav-tabs" role="tablist">
+    	      <li class="active"><a href="#myData" role="tab" data-toggle="tab">My community</a></li>
+              <li><a href="#compareData" role="tab" data-toggle="tab">Neighbourhood</a></li>
               <li><a href="#">National Standing</a></li>
               <li><a href="#">Overall</a></li>
             </ul>
+<div class="tab-content">
+	    <div class="tab-pane fade active in" id="myData">
+		<div id="userData"></div>
+	    </div>
+	    <div class="tab-pane fade" id="compareData">
+	        <div id="compareChartBio"></div>
+	        <div id="compareChartEnergy"></div>
+	        <div id="compareChartMixed"></div>
+	    </div>
+	  </div>
 	  </div>
 	</div>
       </div>
     </div> <!-- /container -->
 </body>
 <script src="map.js"></script>
+
+
+<!-- Load d3.js and c3.js -->
+<script src="c3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+<script src="indiAread3.js"></script>
 </html>

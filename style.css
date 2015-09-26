@@ -1,1 +1,15 @@
-#map { width: 500px; height: 500px; }
+#map { 
+ width: 650px;
+ height: 800px;
+}
+
+#userData {
+ /*width: 700px;*/
+ height: 350px;
+}
+
+#tabContainer {
+ padding: 0px;
+ height: 1500px;
+ width: 1650px;
+}
