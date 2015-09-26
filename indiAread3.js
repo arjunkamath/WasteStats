@@ -33,6 +33,11 @@ var chart2 = c3.generate({
         ],
         type: 'bar'
     },
+    axis: {
+      x: {
+         extent: [5, 4.5]
+      }
+    },
     zoom: {
         enabled: true
     }
@@ -72,19 +77,30 @@ var chart5 = c3.generate({
   bindto: '#userRating',
     data: {
         columns: [
-            ['compareData', 30, 40, 50]
+            ['Are you better than you?', 30, 40, 50]
         ],
         type: 'bar',
         color: function (color, d) {
             // d will be 'id' when called for legends
-            return d.index === 2? "#ff0000": d.index === 1? "#0000ff": "#00ff00";
+            return d.index === 2? "#b7b09c": d.index === 1? "#009ca6": "#78be20";
         }
     },
     axis: {
         rotated: true,
         x: {
             type: 'category',
-            categories: ['Best', 'Current', 'Worst']
+            categories: ['Your best', 'YOU', 'Your Worst']
         }
+    }
+});
+
+var chart6 = c3.generate({
+  bindto: '#yourPie',
+    data: {
+        columns: [
+            ['Bio', 10],
+            ['Mixed', 60],
+            ['Energy',30]
+        ], type: "donut"
     }
 });

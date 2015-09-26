@@ -47,15 +47,15 @@ function animate_line(){
 
   console.log("ANIMATE");
 
-  map.setView(otaniemi_array[2], 8);
+  //map.setView(otaniemi_array[2], 8);
 
-  var latLangs2 = [];
+  /*var latLangs2 = [];
   latLangs2.push(otaniemi_array[2]);
   latLangs2.push(lauttasaari_xy);
   latLangs2.push(tapiola_xy);
 
   var polyline2 = L.polyline(latLangs2, {color: 'green'}).addTo(map);
-
+*/
   //animated line now
   var polyline = L.polyline([], {color: 'red'}).addTo(map);
 
@@ -156,7 +156,7 @@ function showLauttasaari(){
 }
 
 function showOtaniemi(){
-  map.setView(otaniemi_array[2], 13);
+  map.setView(otaniemi_array[2], 10);
   
   lauttasaari_set_opacity(0.5);
   tapiola_set_opacity(0.5);

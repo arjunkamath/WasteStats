@@ -1,11 +1,13 @@
 #map { 
- width: 650px;
+ width: 750px;
  height: 800px;
+ margin: auto;
 }
 
 #userData {
  /*width: 700px;*/
  height: 350px;
+ padding-top: 5px;
 }
 
 #tabContainer {
@@ -14,6 +16,25 @@
  width: 1650px;
 }
 
-#poker {
-  margin: auto;
+#myData {
+  text-align: center;
+}
+
+.progressImage {
+ padding-top: 60px;
+ display: block;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.verdict {
+ text-align: center;
+ font-family: Monospace;
+ font-weight: bold;
+}
+
+#yourPie {
+  background-image: url("pokerface.png");
+  background-repeat: no-repeat;
+  background-position: center center;
 }
