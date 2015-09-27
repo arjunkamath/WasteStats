@@ -44,7 +44,7 @@
 #yourPie {
   background-image: url("pokerface.png");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: 50% 37%;
 }
 
 #yourPie .c3-legend-item {

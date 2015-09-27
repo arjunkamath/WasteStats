@@ -7,6 +7,9 @@ var otaniemi_array =[[60.1839642,24.8306658],[60.1810748,24.832884],[60.1868449,
 
 var toKerava = [[60.2325666,24.8144077],[60.2325773,24.8350071],[60.2334029,24.8488688],[60.2343058,24.8735773],[60.234849,24.8873531],[60.236825,24.9003994],[60.2394799,24.9204408],[60.2412054,24.9336588],[60.2457741,24.9408685],[60.2522694,24.9504816],[60.307629,24.9842989],[60.3352525,24.9932253],[60.3537259,25.0095331],[60.364614,25.0297033],[60.3781182,25.0461399],[60.3814138,25.0525128]];
 
+var greenRoute = [[60.1839642,24.8306658],[60.172723,24.844959],[60.1675143,24.9242666], [60.1616001,24.9447372]];
+var blueRoute = [[60.1839642,24.8306658], [60.172723,24.844959],[60.1685817,24.7620895],[60.156112,24.6462181]];
+
 var map = L.map('map').setView(otaniemi_array[2], 14);
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -18,7 +21,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
 var myIcon = L.icon({
-    iconUrl: 'pointer2.png',
+    iconUrl: 'green_bin.png',
     iconSize: [38, 45],
     iconAnchor: [22, 45]
 });
@@ -28,15 +31,15 @@ var ta_dump = new Array();
 var la_dump = new Array();
 
 for (var i=0; i < otaniemi_array.length; i++){
- ot_dump.push(L.marker(otaniemi_array[i]).addTo(map));
+ ot_dump.push(L.marker(otaniemi_array[i], {icon: myIcon}).addTo(map));
 }
 
 for (var i=0; i < lauttasaari_array.length; i++){
- la_dump.push(L.marker(lauttasaari_array[i]).addTo(map));
+ la_dump.push(L.marker(lauttasaari_array[i], {icon: myIcon}).addTo(map));
 }
 
 for (var i=0; i < tapiola_array.length; i++){
- ta_dump.push(L.marker(tapiola_array[i]).addTo(map));
+ ta_dump.push(L.marker(tapiola_array[i], {icon: myIcon}).addTo(map));
 }
 
 
@@ -49,13 +52,22 @@ function animate_line(){
 
   //map.setView(otaniemi_array[2], 8);
 
-  /*var latLangs2 = [];
-  latLangs2.push(otaniemi_array[2]);
-  latLangs2.push(lauttasaari_xy);
-  latLangs2.push(tapiola_xy);
-
+  var latLangs2 = [];
+  latLangs2.push(greenRoute[0]);
+  latLangs2.push(greenRoute[1]);  
+  latLangs2.push(greenRoute[2]);  
+  latLangs2.push(greenRoute[3]);
+  
   var polyline2 = L.polyline(latLangs2, {color: 'green'}).addTo(map);
-*/
+
+  var latLangs3 = [];
+  latLangs3.push(blueRoute[0]);
+  latLangs3.push(blueRoute[1]);  
+  latLangs3.push(blueRoute[2]);  
+  latLangs3.push(blueRoute[3]);
+  
+  var polyline3 = L.polyline(latLangs3, {color: 'blue'}).addTo(map);
+
   //animated line now
   var polyline = L.polyline([], {color: 'red'}).addTo(map);
 
@@ -156,7 +168,7 @@ function showLauttasaari(){
 }
 
 function showOtaniemi(){
-  map.setView(otaniemi_array[2], 10);
+  map.setView(otaniemi_array[2], 11);
   
   lauttasaari_set_opacity(0.5);
   tapiola_set_opacity(0.5);
