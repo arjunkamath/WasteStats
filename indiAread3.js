@@ -32,12 +32,24 @@ var chart7 = c3.generate({
   bindto: '#basicNeighbour',
     data: {
         columns: [
-            [' ', 30, 40, 50]
+            ['neighbor', 30, 40, 50]
         ],
         type: 'bar',
         color: function (color, d) {
             // d will be 'id' when called for legends
             return d.index === 2? "#78BE20": d.index === 1? "#009CA6": "#AF272F";
+        },
+        onclick: function(d) {
+            chart7.ygrids.add(
+                {value: 40}
+            );
+            chart7.load({
+              columns: [
+                ['', -20, -10]
+              ],
+              unload: ['neighbor']
+            });
+ chart7.legend.hide();
         }
     },
     axis: {
@@ -114,6 +126,26 @@ var chart6 = c3.generate({
             Bio: '#78BE20',
 	    Mixed: '#009CA6',
 	    Energy: '#AF272F'
+        },  onclick: function (d) {
+            var url = $("#yourPie").css('background-image');
+            url = url.split('/');
+            url = url[url.length - 1];
+            url = url.substring(0, url.length-1);
+            var finalUrl = url === "pokerface.png" ? "happyface.png" : "pokerface.png";
+            $("#yourPie").css('background-image', 'url(' + finalUrl + ')');
         }
     }
+});
+
+function centerModal() {
+    $(this).css('display', 'block');
+    var $dialog = $(this).find(".modal-dialog");
+    var offset = ($(window).height() - $dialog.height()) / 2;
+    // Center modal vertically in window
+    $dialog.css("margin-top", offset);
+}
+
+$('.modal').on('show.bs.modal', centerModal);
+$(window).on("resize", function () {
+    $('.modal:visible').each(centerModal);
 });
