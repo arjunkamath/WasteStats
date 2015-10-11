@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
 <link rel="stylesheet" href="style.css" />
 <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
-<script src="worldData.js"></script>
 </head>
 <body>
 <!-- Static navbar -->
@@ -55,15 +54,15 @@
           </div>
         </div>
 	<div class="row">
-  	  <div class="col-lg-6">
+  	  <div class="col-lg-6 col-sm-12 mapContainer">
 	    <div id="map"></div>
 	  </div>
-  	  <div class="col-lg-6">
+  	  <div class="col-lg-6 col-sm-12">
 	    <ul class="nav nav-tabs tabNames" role="tablist">
     	      <li class="active"><a href="#myData" role="tab" data-toggle="tab">My community</a></li>
               <li><a href="#compareData" role="tab" data-toggle="tab">Neighbourhood</a></li>
-              <li><a href="#">National Standing</a></li>
-              <li><a href="#">Overall</a></li>
+              <!-- <li><a href="#">National Standing</a></li>
+              <li><a href="#">Overall</a></li> -->
             </ul>
 	<div class="tab-content">
 	    <div class="tab-pane fade active in" id="myData">
