@@ -1,7 +1,11 @@
 #map { 
- width: 750px;
+ /*width: 750px;*/
  height: 800px;
  margin: auto;
+}
+
+.mapContainer {
+ padding-bottom: 20px; 
 }
 
 #userData {
@@ -15,13 +19,13 @@
 }
 
 .navContainer {
-   width: 1650px;
+   /*width: 1650px;*/
 }
 
 #tabContainer {
  padding: 0px;
  height: 900px;
- width: 1650px;
+ /*width: 1650px;*/
 }
 
 #myData {
